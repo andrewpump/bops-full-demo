@@ -1,4 +1,4 @@
-import { AiAssistant } from 'duckdevatgit-layer';
+import { AiAssistant } from 'andrew-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
 import data from './assets/sample.json';
