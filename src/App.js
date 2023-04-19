@@ -1,5 +1,3 @@
-import data from './assets/sample.json';
-import React, { useEffect, useState } from 'react';
 import {AiAssistant} from 'andrew-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
