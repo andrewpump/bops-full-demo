@@ -1,4 +1,6 @@
-import { AiAssistant } from 'andrew-layer';
+import data from './assets/sample.json';
+import React, { useEffect, useState } from 'react';
+import {AiAssistant} from 'andrew-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
 import data from './assets/sample.json';
@@ -6,7 +8,6 @@ import React, { useEffect, useState } from 'react';
 
 
 function App() {
-
   const [listItems, setListItems] = useState([]);
 
   // A function generateListItems that randomly selects 3 to 5 items from data
