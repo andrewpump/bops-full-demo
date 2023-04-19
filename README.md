@@ -6,13 +6,15 @@ Hey Bops Team!  Here is the raw source code for your fully functional demo.  It 
 
 ## Installation and Start-up
 
-In the project directory, run:
+### `1. Add .env file to root directory`
 
-### `npm install`
+The .env file should have been provided over slack for you
+
+### `2. npm install`
 
 Make sure you install all required dependencies to the project before
 
-### `npm start`
+### `3. npm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
