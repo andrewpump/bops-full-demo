@@ -1,4 +1,5 @@
 # Bops Full Demo Application
+![Getting Started](./bopslogo.png)
 
 Hey Bops Team!  Here is the raw source code for your fully functional demo.  It should up up and running with just 2 commands (listed below) as long as you have npm and node correctly installed.  Remeber that this is an MVP and we want to learn as much as we can from it so that we are able to make improvements over time.  Feel free to let us know any of your comments or questions and have fun testing!
 
