@@ -1,8 +1,9 @@
-import data from './assets/sample.json';
 import React, { useEffect, useState } from 'react';
 import {AiAssistant} from 'duckdevatgit-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
+import data from './assets/sample.json';
+
 
 function App() {
   const [listItems, setListItems] = useState([]);
