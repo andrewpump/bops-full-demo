@@ -1,4 +1,3 @@
-import data from './assets/sample.json';
 import React, { useEffect, useState } from 'react';
 import {AiAssistant} from 'duckdevatgit-layer';
 import './App.css';
