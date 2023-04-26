@@ -1,9 +1,8 @@
+import data from './assets/sample.json';
 import React, { useEffect, useState } from 'react';
 import {AiAssistant} from 'duckdevatgit-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
-import data from './assets/sample.json';
-
 
 function App() {
   const [listItems, setListItems] = useState([]);
@@ -40,7 +39,7 @@ function App() {
 
   return (
     <div className="main-background">
-      <AiAssistant itemList={listItems} color="#7b6cf3" image={DemoImage} />
+      <AiAssistant  title='Bops Insights' itemList={listItems} color="#7b6cf3" placeholder='getting insight...' image={DemoImage} showButton={true} showPopUp={false} receiveInsights={(insights)=>console.log('insightsData',insights)} />
       <div>
         <h1>BOPS React web app in this background area!</h1>
 
