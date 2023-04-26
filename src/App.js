@@ -3,6 +3,10 @@ import React, { useEffect, useState } from 'react';
 import {AiAssistant} from 'duckdevatgit-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
+import data from './assets/sample.json';
+
+const customPrompt = `Justify the policy action in this json data using the other data in 
+the obejct and respond very concisely and use numbers: \n\n`;
 
 function App() {
   const [listItems, setListItems] = useState([]);
@@ -17,6 +21,7 @@ function App() {
         const construct = {
           title: data[randomIndex].policy_action,
           subtitle: data[randomIndex].product_code_description,
+          prompt: customPrompt,
           payload: JSON.stringify(data[randomIndex]),
         };
         li.push(construct);
