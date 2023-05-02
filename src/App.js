@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {AiAssistant} from 'duckdevatgit-layer';
+import { AiAssistant } from 'duckdevatgit-layer';
 import './App.css';
 import DemoImage from "./assets/images/demoImage.png"
 import data from './assets/sample.json';
@@ -31,8 +31,9 @@ function App() {
     }
     setListItems(li);
   };
-  
+
   const [once, setOnce] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (!once) {
@@ -43,7 +44,16 @@ function App() {
 
   return (
     <div className="main-background">
-      <AiAssistant  title='Bops Insights' itemList={listItems} color="#7b6cf3" placeholder='getting insight...' image={DemoImage} showButton={true} showPopUp={false} receiveInsights={(insights)=>console.log('insightsData',insights)} />
+      <AiAssistant
+        title='Bops Insights'
+        itemList={listItems}
+        color="#7b6cf3"
+        placeholder='getting insight...'
+        image={DemoImage}
+        showButton={true}
+        showPopUp={isOpen}
+        receiveInsights={(insights) => console.log('insightsData', insights)}
+      />
       <div>
         <h1>BOPS React web app in this background area!</h1>
 
@@ -59,6 +69,10 @@ function App() {
           })}
         </div>
         <button className="custom-button" onClick={generateListItems}>Regenerate List Items</button>
+        <button className="custom-button" onClick={() => {
+          console.log("set isOpen: " + !isOpen);
+          setIsOpen(!isOpen);
+        }}>Open Widget</button>
       </div>
     </div>
   );
