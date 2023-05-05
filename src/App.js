@@ -34,14 +34,14 @@ function App() {
 
   const [once, setOnce] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
-
+  const [subtitle, setSubtitle] = useState("");
   useEffect(() => {
     if (!once) {
       setOnce(true);
       generateListItems();
     }
   });
-
+  
   return (
     <div className="main-background">
       <AiAssistant
@@ -52,6 +52,7 @@ function App() {
         image={DemoImage}
         showButton={true}
         showPopUp={isOpen}
+        selectedTitle={subtitle}
         receiveInsights={(insights) => console.log('insightsData', insights)}
       />
       <div>
@@ -62,8 +63,8 @@ function App() {
           <h3>Randomly Reccomended Products:</h3>
           {listItems.map((item, index) => {
             return (
-              <div className="product-name" key={index}>
-                <h3>{item.subtitle}</h3>
+              <div className="product-name cursor" key={index} onClick={() => setSubtitle(item.subtitle) } >
+                <h3 >{item.subtitle}</h3>
               </div>
             );
           })}
