@@ -9,6 +9,7 @@ the obejct and respond very concisely and use numbers: \n\n`;
 
 function App() {
   const [listItems, setListItems] = useState([]);
+  const [insightData, setInsightData] = useState("");
 
   // A function generateListItems that randomly selects 3 to 5 items from data
   const generateListItems = () => {
@@ -41,7 +42,7 @@ function App() {
       generateListItems();
     }
   });
-  
+  console.log(insightData);
   return (
     <div className="main-background">
       <AiAssistant
@@ -53,7 +54,7 @@ function App() {
         showButton={true}
         showPopUp={isOpen}
         selectedTitle={subtitle}
-        receiveInsights={(insights) => console.log('insightsData', insights)}
+        receiveInsights={(insights) => setInsightData(insights)}
       />
       <div>
         <h1>BOPS React web app in this background area!</h1>
