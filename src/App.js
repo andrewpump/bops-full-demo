@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { AiAssistant } from 'duckdevatgit-layer';
+import { Widget } from '@buildwithlayer/sdk';
 import './App.css';
-import DemoImage from "./assets/images/demoImage.png"
 import data from './assets/sample.json';
 
 const customPrompt = `Justify the policy action in this json data using the other data in 
@@ -32,6 +31,14 @@ function App() {
     setListItems(li);
   };
 
+  const getInsightFromSKU = (payload) => {
+    data.find((item) => {
+      if (item.product_code === payload.product_code) {
+        return item;
+      }
+    });
+  }
+
   const [once, setOnce] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
   const [subtitle, setSubtitle] = useState("");
@@ -40,19 +47,35 @@ function App() {
       setOnce(true);
       generateListItems();
     }
+
+    console.log("OpenAI Key: ", process.env.REACT_APP_OPEN_AI_API_KEY);
   });
   return (
     <div className="main-background">
-      <AiAssistant
-        title='Bops Insights'
-        itemList={listItems}
-        color="#7b6cf3"
-        placeholder='getting insight...'
-        image={DemoImage}
-        showButton={true}
-        showPopUp={isOpen}
-        selectedTitle={subtitle}
-        receiveInsights={(insights) => console.log("insights",insights)}
+      <Widget
+        // Optional title for the header
+        title="Optional Title"
+        // Optional function to render a logo in the header
+        renderLogo={() => <p>Logo</p>}
+        // Optional function to render a custom fab
+        renderFab={(onClick) => (
+          <button onClick={onClick}>Open Layer Assistant</button>
+        )}
+        // Optional string to override the default message in the chat
+        defaultMessage={`Sample Message`}
+        // Open AI Key
+        openAIApi={process.env.REACT_APP_OPEN_AI_API_KEY}
+        // Optional theme overrides
+        themeOverrides={{
+          palette: {
+            primary: {
+              main: '#000000',
+            },
+            secondary: {
+              main: '#ffffff',
+            },
+          },
+        }}
       />
       <div>
         <h1>BOPS React web app in this background area!</h1>
@@ -62,7 +85,7 @@ function App() {
           <h3>Randomly Reccomended Products:</h3>
           {listItems.map((item, index) => {
             return (
-              <div className="product-name cursor" key={index} onClick={() => setSubtitle(item.subtitle) } >
+              <div className="product-name cursor" key={index} onClick={() => setSubtitle(item.subtitle)} >
                 <h3 >{item.subtitle}</h3>
               </div>
             );
